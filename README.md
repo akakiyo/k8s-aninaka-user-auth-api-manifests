@@ -1,0 +1,1 @@
+# k8s-aninaka-user-auth-api-manifests
