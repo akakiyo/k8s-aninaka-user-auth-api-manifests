@@ -1,0 +1,3 @@
+[submodule "aninaka-credentials"]
+	path = aninaka-credentials
+	url = git@gitlab.com:akakiyo/aninaka-credentials.git
