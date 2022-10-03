@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: aninaka
+  name: aninaka-user-auth-api
+  labels:
+    app: aninaka-user-auth-api
+spec:
+  selector:
+    matchLabels:
+      app: aninaka-user-auth-api
+  template:
+    metadata:
+      labels:
+        app: aninaka-user-auth-api
+    spec:
+      containers:
+        - image: asia.gcr.io/aninaka-363507/aninaka-user-auth-api_app:latest
+          name: aninaka-user-auth-api
+          ports:
+            - containerPort: 8081
+              protocol: TCP
+          env:
+            - name: SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: SECRET
+            - name: ARGORITHM
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: ARGORITHM
+            - name: EXPIRESIN
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: EXPIRESIN
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: DB_HOST
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: DB_USER
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: DB_PASS
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: DB_PORT
+            - name: DB_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: DB_DATABASE
