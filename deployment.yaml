@@ -15,7 +15,7 @@ spec:
         app: aninaka-user-auth-api
     spec:
       containers:
-        - image: asia.gcr.io/aninaka-363507/aninaka-user-auth-api_app:latest
+        - image: asia.gcr.io/aninaka-363507/aninaka-user-auth-api:production-e82ea37
           name: aninaka-user-auth-api
           ports:
             - containerPort: 8081
